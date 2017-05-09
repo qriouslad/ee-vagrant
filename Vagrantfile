@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
 
   # Configurations from 1.0.x can be placed in Vagrant 1.1.x specs like the following.
   config.vm.provider :virtualbox do |v|
-    v.customize ["modifyvm", :id, "--memory", 1024]
+    v.customize ["modifyvm", :id, "--memory", 768]
     v.customize ["modifyvm", :id, "--cpus", 1]
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
@@ -27,13 +27,13 @@ Vagrant.configure("2") do |config|
   config.vm.provider :parallels do |v|
     v.update_guest_tools = true
     v.optimize_power_consumption = false
-    v.memory = 1024
+    v.memory = 768
     v.cpus = 1
   end
 
   # Configuration options for the VMware Fusion provider.
   config.vm.provider :vmware_fusion do |v|
-    v.vmx["memsize"] = "1024"
+    v.vmx["memsize"] = "768"
     v.vmx["numvcpus"] = "1"
   end
 
@@ -48,11 +48,11 @@ Vagrant.configure("2") do |config|
   # This box is provided by Ubuntu vagrantcloud.com and is a nicely sized (332MB)
   # box containing the Ubuntu 14.04 Trusty 64 bit release. Once this box is downloaded
   # to your host computer, it is cached for future use under the specified box name.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
   # The Parallels Provider uses a different naming scheme.
   config.vm.provider :parallels do |v, override|
-    override.vm.box = "parallels/ubuntu-14.04"
+    override.vm.box = "parallels/ubuntu-16.04"
   end
 
   # The VMware Fusion Provider uses a different naming scheme.
