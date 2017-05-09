@@ -270,24 +270,24 @@ Vagrant.configure("2") do |config|
   # into the VM and execute things. By default, each of these scripts calls db_backup
   # to create backups of all current databases. This can be overridden with custom
   # scripting. See the individual files in config/homebin/ for details.
-  if defined? VagrantPlugins::Triggers
-    config.trigger.after :up, :stdout => true do
-      run "vagrant ssh -c 'vagrant_up'"
-    end
-    config.trigger.before :reload, :stdout => true do
-      run "vagrant ssh -c 'vagrant_halt'"
-    end
-    config.trigger.after :reload, :stdout => true do
-      run "vagrant ssh -c 'vagrant_up'"
-    end
-    config.trigger.before :halt, :stdout => true do
-      run "vagrant ssh -c 'vagrant_halt'"
-    end
-    config.trigger.before :suspend, :stdout => true do
-      run "vagrant ssh -c 'vagrant_suspend'"
-    end
-    config.trigger.before :destroy, :stdout => true do
-      run "vagrant ssh -c 'vagrant_destroy'"
-    end
-  end
+  # if defined? VagrantPlugins::Triggers
+  #   config.trigger.after :up, :stdout => true do
+  #     run "vagrant ssh -c 'vagrant_up'"
+  #   end
+  #   config.trigger.before :reload, :stdout => true do
+  #     run "vagrant ssh -c 'vagrant_halt'"
+  #   end
+  #   config.trigger.after :reload, :stdout => true do
+  #     run "vagrant ssh -c 'vagrant_up'"
+  #   end
+  #   config.trigger.before :halt, :stdout => true do
+  #     run "vagrant ssh -c 'vagrant_halt'"
+  #   end
+  #   config.trigger.before :suspend, :stdout => true do
+  #     run "vagrant ssh -c 'vagrant_suspend'"
+  #   end
+  #   config.trigger.before :destroy, :stdout => true do
+  #     run "vagrant ssh -c 'vagrant_destroy'"
+  #   end
+  # end
 end
